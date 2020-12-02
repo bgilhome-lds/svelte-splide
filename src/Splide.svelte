@@ -58,7 +58,8 @@
   }
 
   onMount(async () => {
-    const Splide = (await import("@splidejs/splide")).default.default;
+    let Splide = (await import("@splidejs/splide")).default;
+    Splide = Splide.default || Splide;
     splide = new Splide(element, options);
 
     splide.on("move.svelte-splide", (newIndex, oldIndex, destIndex) => {
