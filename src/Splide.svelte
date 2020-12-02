@@ -2,14 +2,14 @@
   import { onMount, onDestroy } from "svelte";
   import { groups } from "./lib/store";
 
-  export let splide;
-  export let autoHideArrows;
+  export let splide = null;
+  export let autoHideArrows = false;
   export let autoHideArrowsOffset = 0;
-  export let currentIndex;
-  export let group;
+  export let currentIndex = 0;
+  export let group = "";
   export let options = {};
-  export let extensions;
-  export let transition;
+  export let extensions = "";
+  export let transition = "";
 
   const SYNC_EVENT = "move.svelte-splide-sync";
 
