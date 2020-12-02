@@ -1,6 +1,5 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import Splide from "@splidejs/splide";
   import { groups } from "./lib/store";
 
   export let splide;
@@ -58,7 +57,8 @@
     arrow.style.display = hide ? "none" : "block";
   }
 
-  onMount(() => {
+  onMount(async () => {
+    const Splide = (await import("@splidejs/splide")).default.default;
     splide = new Splide(element, options);
 
     splide.on("move.svelte-splide", (newIndex, oldIndex, destIndex) => {
